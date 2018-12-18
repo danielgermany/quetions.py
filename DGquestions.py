@@ -38,6 +38,7 @@ while ans_check and ans_checkConfirm: #Setting up loop
         except ValueError:
             print("You answer was a string.")
             print("Please only enter 1, 2, 3, or 4 as viable answers.")
+            continue
         
     if ans_checkConfirm == True:
         #Asks the user to answer confirmation question.
@@ -48,14 +49,18 @@ while ans_check and ans_checkConfirm: #Setting up loop
             if user_answerConfirm < 1:
                 print("This isn't a valid answer, this number was either 0 or a negative number.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
+                ans_check = False
                 continue
-            elif user_answerConfirm> 4:
+            elif user_answerConfirm > 4:
                 print("This isn't a valid answer, this number was higher than 4.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
+                ans_check = False
                 continue
             elif user_answerConfirm == user_answer:
                 ans_checkConfirm = False
                 print("Your answer has been confirmed, proceeding to the next question.")
+                if user_answer == 3:
+                    user_score+=1
                 continue
             else:
                 print("Your original answer and confirmed answer dosn't match.")
