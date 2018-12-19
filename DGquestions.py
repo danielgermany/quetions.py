@@ -7,6 +7,7 @@ ans_checkConfirm = True
 
 
 while ans_check and ans_checkConfirm: #Setting up loop
+    ans_checkConfirm = False
     #Asks the user a question
     print("What is 9 squared?")
     #Gives user an example on how to use the program
@@ -21,25 +22,26 @@ while ans_check and ans_checkConfirm: #Setting up loop
     #Asks the user to answer
     print("Enter your answer without anything else.")
     user_answer = input()
-    #Checks if answer given is right or not
+    #Checks if answer given is valid or not
     if ans_check == True:
         try:
             user_answer = int(user_answer)
             if user_answer < 1:
                 print("This isn't a valid answer, this number was either 0 or a negative number.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
-                continue
+                ans_checkConfirm = False               
             elif user_answer > 4:
                 print("This isn't a valid answer, this number was higher than 4.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
-                continue
+                ans_checkConfirm = False
             else:
                 ans_check = False
+                ans_checkConfirm = True
         except ValueError:
             print("You answer was a string.")
             print("Please only enter 1, 2, 3, or 4 as viable answers.")
-            continue
-        
+            ans_checkConfirm = False
+            
     if ans_checkConfirm == True:
         #Asks the user to answer confirmation question.
         print("Confirm that your answer is ", user_answer, " by entering you answer again.")
@@ -49,19 +51,18 @@ while ans_check and ans_checkConfirm: #Setting up loop
             if user_answerConfirm < 1:
                 print("This isn't a valid answer, this number was either 0 or a negative number.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
-                ans_check = False
-                continue
+                ans_check = True
+
             elif user_answerConfirm > 4:
                 print("This isn't a valid answer, this number was higher than 4.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
-                ans_check = False
-                continue
+                ans_check = True
+                
             elif user_answerConfirm == user_answer:
                 ans_checkConfirm = False
                 print("Your answer has been confirmed, proceeding to the next question.")
                 if user_answer == 3:
-                    user_score+=1
-                continue
+                    user_score+=1              
             else:
                 print("Your original answer and confirmed answer dosn't match.")
                 print("Returning you to the orignal question")
@@ -69,6 +70,7 @@ while ans_check and ans_checkConfirm: #Setting up loop
         except ValueError:
             print("You answer was a string.")
             print("Please only enter 1, 2, 3, or 4 as viable answers.")
+            ans_check = True
 
-
+    ans_checkConfirm = True
 
