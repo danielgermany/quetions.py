@@ -9,6 +9,7 @@ ans_checkConfirm = True
 while ans_check and ans_checkConfirm: #Setting up loop
     ans_checkConfirm = False
     #Asks the user a question
+    print("--------------------------------------------------------")
     print("What is 9 squared?")
     #Gives user an example on how to use the program
     print("Press the number corresponding to the asnwer.")
