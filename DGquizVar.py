@@ -3,10 +3,25 @@ user_score = 0
 ans_check = True
 ans_checkConfirm = True
 
+question1 = ("Who was the Greek or Roman God of War? /n 1. Ares /n 2. Athena /n 3. Zues /n 4. Apollo")
+question1_correct = 1
+
 Q1 = [question1,question1_userAnswer,question1_correct]
+
+question2 = ("What chemical element is diamond made of? /n 1. Silicon /n 2. Argon /n 3. Carbon /n 4. Boron")
+question2_correct = 3
+
 Q2 = [question2,question2_userAnswer,question2_correct]
 Q3 = [question3,question3_userAnswer,question3_correct]
+
+question3 = ("What is the name of the poker hand containing three of a kind and a pair? /n 1. Royal Flush /n 2. Full House /n 3. Three of a Kind /n 4. Two Pair")
+question3_correct = 2
+
 Q4 = [question4,question4_userAnswer,question4_correct]
+
+question4 = ("What part of the body produces insulin? /n 1. Pancreas /n 2. Kidney /n 3. Brain /n 4. Liver")
+question4_correct = 1
+
 Q5 = [question5,question5_userAnswer,question5_correct]
 Q6 = [question6,question6_userAnswer,question6_correct]
 Q7 = [question7,question7_userAnswer,question7_correct]
@@ -19,17 +34,6 @@ quiz = [Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
 def question_Confirm():
     while ans_check and ans_checkConfirm: #Setting up loop
         ans_checkConfirm = False
-        #Asks the user a question
-        print("--------------------------------------------------------")
-        print("What is 9 squared?")
-        #Gives user an example on how to use the program
-        print("Press the number corresponding to the asnwer.")
-        print("For example if you believe the answer to be 3 then press 1 on your keyboard.")
-        #Gives user answers to choose from
-        print("1. 3")
-        print("2. 9")
-        print("3. 81")
-        print("4. 18")
 
         #Asks the user to answer
         print("Enter your answer without anything else.")
