@@ -55,18 +55,19 @@ Q10 = [question10,question10_userAnswer,question10_correct]
 
 quiz = [Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
 
-def question_Confirm(x,y):
+def question_Confirm(x):
     while ans_check and ans_checkConfirm: #Setting up loop
         ans_checkConfirm = False
 
         #Asks the user to answer
+        print(quiz[x][1])
         print("Enter your answer without anything else.")
-        quiz[x][y] = input()
+        quiz[x][2] = input()
         #Checks if answer given is valid or not
         if ans_check == True:
             try:
                 user_answer = int(user_answer)
-                if  1 < quiz[x][y] < 4:
+                if  1 < quiz[x][2] < 4:
                     ans_check = False
                 ans_checkConfirm = True
                 else:
@@ -83,7 +84,7 @@ def question_Confirm(x,y):
             user_answerConfirm = input()
             try:
                 user_answerConfirm = int(user_answerConfirm)
-                if quiz[x][y] == quiz[x][y+1]:
+                if quiz[x][2] == user_answerConfirm:
                     ans_checkConfirm = False
                 else:
                     print("Your original answer and confirmed answer dosn't match.")
@@ -95,6 +96,11 @@ def question_Confirm(x,y):
                 ans_check = True
 
         ans_checkConfirm = True
+
+def question_Grade(x):
+    if quiz[x][2] == quiz[x][3]:
+        user_score += 1
+        
 
 
     
