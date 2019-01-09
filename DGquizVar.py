@@ -3,6 +3,9 @@ user_answer = str
 user_score = 0
 ans_check = True
 ans_checkConfirm = True
+end = True
+x = 0
+y = 0
 
 question1 = ("""Who was the Greek or Roman God of War?
 1. Ares
@@ -106,12 +109,14 @@ Q10 = [question10,question10_userAnswer,question10_correct]
 
 quiz = [Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10]
 
-def question_Confirm(x):
+def question_Confirm():
     global ans_check
     global ans_checkConfirm
     global user_answer
     global user_answerConfirm
-    while ans_check and ans_checkConfirm: #Setting up loop
+    global x
+    global end
+    while end: #Setting up loop
         ans_checkConfirm = False
 
         #Asks the user to answer
@@ -124,9 +129,9 @@ def question_Confirm(x):
                 user_answer = int(quiz[x][1])
                 if  1 <= user_answer <= 4:
                     ans_check = False
+                    ans_checkConfirm = True
                 else:
                     print("Please only enter 1, 2, 3, or 4 as viable answers.")
-                    #continue
             except ValueError:
                 print("You answer was a string.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
@@ -137,26 +142,41 @@ def question_Confirm(x):
             print("Confirm that your answer is ", quiz[x][1], " by entering you answer again.")
             user_answerConfirm = input()
             try:
-                print("test")
                 user_answerConfirm = int(user_answerConfirm)
                 if user_answer == user_answerConfirm:
                     ans_checkConfirm = False
-                    print("test")
+                    print(quiz[x][1])
+                    print(quiz[x][2])
                 else:
                     print("Your original answer and confirmed answer dosn't match.")
                     print("Returning you to the original question.")
                     ans_check = True
                 
+            #If the program sees a string in user_answer the while loop outputs these lines.
             except ValueError:
                 print("You answer was a string.")
                 print("Please only enter 1, 2, 3, or 4 as viable answers.")
                 ans_check = True
 
-        ans_checkConfirm = True
+        if ans_check == False and ans_checkConfirm == False:
+            ans_check = True
+            ans_checkConfirm = True
+            x += 1
+            if x > 9:
+                end = False
+            
 
-def question_Grade(x):
-    if quiz[x][1] == quiz[x][2]:
-        user_score += 1
+def question_Grade():
+    #Sets the two booleans to be true so the while loop in question_Confirm can run again
+    global y
+    global user_score
+    ans_check = True
+    ans_checkConfirm = True
+    for y in range(9):
+        if quiz[y][1] == quiz[y][2]:
+            user_score += 1
+    print("You got ",user_score," out of 10 correct")
+        
 
         
 
