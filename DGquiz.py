@@ -1,10 +1,8 @@
 from DGquizVar import *
 
-y = 1
+y = 0
 
-for y in range(10):
+for y in range(9):
     question_Confirm(y)
     question_Grade(y)
-
-
-
+    y += 1
